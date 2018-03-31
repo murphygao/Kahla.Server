@@ -53,8 +53,8 @@ namespace Kahla.Server
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
                 app.UseEnforceHttps();
+                app.UseExceptionHandler("/Home/Error");
             }
             app.UseAiursoftAuthenticationFromConfiguration(Configuration, "Kahla");
             app.UseHandleKahlaOptions();
