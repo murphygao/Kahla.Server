@@ -35,6 +35,7 @@ namespace Kahla.Server
             services.AddIdentity<KahlaUser, IdentityRole>()
                 .AddEntityFrameworkStores<KahlaDbContext>()
                 .AddDefaultTokenProviders();
+            services.ConfigureApplicationCookie(t => t.Cookie.SecurePolicy = CookieSecurePolicy.None);
 
             services.AddMvc();
             services.AddTransient<AuthService<KahlaUser>>();
