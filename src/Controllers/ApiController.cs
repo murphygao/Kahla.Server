@@ -24,8 +24,8 @@ using Microsoft.Extensions.Configuration;
 
 namespace Kahla.Server.Controllers
 {
-    [ForceValidateModelState]
-    [AiurExceptionHandler]
+    [APIExpHandler]
+    [APIModelStateChecker]
     public class ApiController : Controller
     {
         private readonly UserManager<KahlaUser> _userManager;
@@ -82,8 +82,7 @@ namespace Kahla.Server.Controllers
 
         [HttpPost]
         [KahlaRequireCredential]
-        [ContainsValidFile]
-        [ForceValidateModelState]
+        [FileChecker]
         public async Task<IActionResult> UploadFile()
         {
             string iconPath = string.Empty;
@@ -222,7 +221,6 @@ namespace Kahla.Server.Controllers
         }
         [HttpPost]
         [KahlaRequireCredential]
-        [ForceValidateModelState]
         public async Task<IActionResult> CompleteRequest(CompleteRequestAddressModel model)
         {
             var user = await GetKahlaUser();
@@ -267,7 +265,6 @@ namespace Kahla.Server.Controllers
         }
 
         [KahlaRequireCredential]
-        [ForceValidateModelState]
         public async Task<IActionResult> SearchFriends(SearchFriendsAddressModel model)
         {
             var users = await _dbContext

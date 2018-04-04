@@ -19,7 +19,7 @@ namespace Kahla.Server.Controllers
 
         public IActionResult Error()
         {
-            return this.Protocal(ErrorType.UnknownError, "Kahla server crushed! Please tell us!");
+            return this.Protocal(ErrorType.UnknownError, "Kahla server was crashed! Please tell us!");
         }
     }
 }
