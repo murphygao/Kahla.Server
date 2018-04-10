@@ -3,9 +3,6 @@ mono: none
 dotnet: 2.0.0
 dist: trusty
 install:
-  - cd ../
-  - git clone https://github.com/AiursoftWeb/Pylon.git
-  - cd ./Kahla.Server
   - dotnet restore
 script:
   - dotnet build

@@ -22,7 +22,7 @@ namespace Kahla.Server
     {
         public IConfiguration Configuration { get; }
 
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -44,7 +44,7 @@ namespace Kahla.Server
             services.AddTransient<PushKahlaMessageService>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, KahlaDbContext dbContext)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
