@@ -54,8 +54,8 @@ namespace Kahla.Server.Controllers
         {
             return Json(new VersionViewModel
             {
-                LatestVersion = "0.7.0",
-                OldestSupportedVersion = "0.7.0",
+                LatestVersion = _configuration["AppVersion"],
+                OldestSupportedVersion = _configuration["AppVersion"],
                 message = "Successfully get the lastest version number for Kahla."
             });
         }
